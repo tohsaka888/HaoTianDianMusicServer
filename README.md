@@ -12,4 +12,6 @@ npm run build
 ```
 
 **use yarn**
-```yarn start```
+```terminal
+yarn start
+```
