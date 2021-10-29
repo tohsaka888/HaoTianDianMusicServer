@@ -8,6 +8,7 @@ var cors = require("cors")
 var indexRouter = require("./routes/index");
 var musicTagRouter = require("./routes/getMusicByTag");
 var musicNameRouter = require("./routes/getMusicByName")
+var collectMusicRouter = require("./routes/collectMusic")
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(cors())
 app.use("/", indexRouter);
 app.use("/getMusicByTag", musicTagRouter);
 app.use("/getMusicByName", musicNameRouter);
+app.use("/collectMusic", collectMusicRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
