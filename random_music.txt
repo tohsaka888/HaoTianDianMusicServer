@@ -1,0 +1,1 @@
+{"_id": {"$oid": "61748dbc713543207d83126c"}, "tags": ["小语种", "拉丁", "吉他"], "name": "Humanos a Marte", "id": 32944044, "picUrl": "http://p3.music.126.net/cMuFQywp2at12vUQp3CHXw==/109951165969537405.jpg", "ar": [{"name": "Chayanne"}]}

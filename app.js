@@ -7,9 +7,13 @@ var cors = require("cors")
 
 var indexRouter = require("./routes/index");
 var musicTagRouter = require("./routes/getMusicByTag");
-var musicNameRouter = require("./routes/getMusicByName")
-var collectMusicRouter = require("./routes/collectMusic")
+var musicNameRouter = require("./routes/getMusicByName");
+var collectMusicRouter = require("./routes/collectMusic");
+var getDefaultPlayListRouter = require("./routes/getDefaultPlayList");
+var getDefaultMusicRouter = require("./routes/getDefaultMusic");
 
+const { appendFile } = require("fs");
+const { getDefaultSettings } = require("http2");
 var app = express();
 
 // view engine setup
@@ -27,6 +31,8 @@ app.use("/", indexRouter);
 app.use("/getMusicByTag", musicTagRouter);
 app.use("/getMusicByName", musicNameRouter);
 app.use("/collectMusic", collectMusicRouter);
+app.use("/getDefaultPlayList", getDefaultPlayListRouter);
+app.use("/getDefaultMusic", getDefaultMusicRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

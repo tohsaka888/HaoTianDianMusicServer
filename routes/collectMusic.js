@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const connectMusicDB = require("../components/mongoConnection");
+const cors = require('cors')
+
+router.use(express.json())
+router.use(express.urlencoded({ extended: false }))
+router.use(cors())
 
 router.post("/", async (req, res, next) => {
   try {
