@@ -20,6 +20,7 @@ class MongoRandomPlayList(object):
         return answer_dict
  
     def run(self):
+        print("random_playlist")
         fileTouch.save_file(fileTouch.path + 'random_playlist.txt', self.random_music()['list'])    
 
 

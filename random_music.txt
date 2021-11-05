@@ -1,1 +1,1 @@
-{"_id": {"$oid": "61748dbc713543207d83126c"}, "tags": ["小语种", "拉丁", "吉他"], "name": "Humanos a Marte", "id": 32944044, "picUrl": "http://p3.music.126.net/cMuFQywp2at12vUQp3CHXw==/109951165969537405.jpg", "ar": [{"name": "Chayanne"}]}
+{"_id": {"$oid": "61748dba713543207d82c3e9"}, "tags": ["舞曲", "兴奋", "说唱", "散步", "放松"], "name": "和你匹配", "id": 1829828597, "picUrl": "http://p4.music.126.net/VTjNLOweoZs8i0PJnmodAw==/109951165809040747.jpg", "ar": [{"name": "0-100"}, {"name": "地下8英里"}, {"name": "阿斯巴田ASPT"}, {"name": "达芬奇"}, {"name": "Mai"}, {"name": "HYPER MUSIC"}], "heat": 1522}

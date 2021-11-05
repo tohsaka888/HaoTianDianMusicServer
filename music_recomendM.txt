@@ -1,0 +1,20 @@
+{"tags": ["摇滚", "驾车", "80后"], "name": "LetTalk About A Man", "id": 28644437, "picUrl": "http://p3.music.126.net/eEe9Bg9RB6qd5hDs_25asA==/5931865232293820.jpg", "ar": [{"name": "Prezioso"}, {"name": "Marvin"}], "heat": 4158}
+{"tags": ["轻音乐", "夜晚", "放松"], "name": "γ", "id": 29137875, "picUrl": "http://p3.music.126.net/U5O4aGdTvcnHSA5HhxLapg==/7937374441937799.jpg", "ar": [{"name": "α·Pav"}], "heat": 8425}
+{"tags": ["欧美", "摇滚", "兴奋"], "name": "Titanium", "id": 3406918, "picUrl": "http://p3.music.126.net/7jJSoIh-0scojR2jJQjYpg==/18726882045835681.jpg", "ar": [{"name": "David Guetta"}, {"name": "Sia"}], "heat": 769}
+{"tags": ["欧美", "驾车", "旅行"], "name": "Любимка (Alexei Shkurko Remix)", "id": 1406616476, "picUrl": "http://p3.music.126.net/4KElZFksDssg_646bzw9PA==/109951164516932633.jpg", "ar": [{"name": "Alexei Shkurko"}], "heat": 6830}
+{"tags": ["爵士", "Bossa Nova", "欧美"], "name": "Someone To Watch Over Me", "id": 16738814, "picUrl": "http://p3.music.126.net/fb6JhPCHDJre2Da_Lnw0iQ==/2533274790696834.jpg", "ar": [{"name": "Blossom Dearie"}], "heat": 2132}
+{"tags": ["浪漫", "流行", "综艺"], "name": "You", "id": 1384569698, "picUrl": "http://p4.music.126.net/dYJzP8YuAUhwCiaqM1bFqw==/109951164298416377.jpg", "ar": [{"name": "Emorie"}], "heat": 1121}
+{"tags": ["韩语", "流行", "清新"], "name": "비♡", "id": 1457421547, "picUrl": "http://p3.music.126.net/iv7OJ5DBdYRe8ErpogcuTQ==/109951165082649048.jpg", "ar": [{"name": "Ravi"}, {"name": "李娜恩"}], "heat": 8514}
+{"tags": ["古风", "网络歌曲", "ACG", "翻唱", "华语"], "name": "求败", "id": 1888827029, "picUrl": "http://p3.music.126.net/pNRi3ylusEZNxvKXpMnHiw==/109951166543457046.jpg", "ar": [{"name": "李常超 (Lao乾妈)"}], "heat": 4740}
+{"tags": ["ACG", "浪漫", "日语"], "name": "さすらいのソフィー", "id": 442498, "picUrl": "http://p4.music.126.net/agi2WJGDqZHjItfvkKBFZw==/109951164728040610.jpg", "ar": [{"name": "久石譲"}], "heat": 5454}
+{"tags": ["夜晚", "爵士", "器乐"], "name": "So Far From Home", "id": 17377231, "picUrl": "http://p4.music.126.net/rOCHAgTLIQgxOsZuWhbZTQ==/109951163875371655.jpg", "ar": [{"name": "Dave Koz"}], "heat": 3405}
+{"tags": ["日语", "ACG"], "name": "Hold Me Now", "id": 1368227452, "picUrl": "http://p3.music.126.net/Mt3FnuNoBWyUJ1YcrBGqAw==/109951164106156259.jpg", "ar": [{"name": "Nai Br.XX"}, {"name": "Celeina Ann"}], "heat": 24}
+{"tags": ["民谣", "安静", "治愈"], "name": "乘务员", "id": 1462341995, "picUrl": "http://p4.music.126.net/wVGBxLrcYZkqaGXYCTr-8A==/109951165227821868.jpg", "ar": [{"name": "谣牙子"}], "heat": 61}
+{"tags": ["古典", "英伦", "影视原声"], "name": "G弦之歌", "id": 34516403, "picUrl": "http://p3.music.126.net/180KlufJBaF2upCl0PkStA==/109951165709026938.jpg", "ar": [{"name": "Henryk Szeryng"}], "heat": 8469}
+{"tags": ["夜晚", "性感", "浪漫"], "name": "Flute (Original)", "id": 5066303, "picUrl": "http://p3.music.126.net/mMiM4JDGj65PHZDAUU4dvg==/2532175280185058.jpg", "ar": [{"name": "M.h.m."}], "heat": 383}
+{"tags": ["怀旧", "治愈", "轻音乐"], "name": "Days", "id": 30621428, "picUrl": "http://p4.music.126.net/1Z3C75yDr96PBTOAZ7QvQw==/7873602766714847.jpg", "ar": [{"name": "やまだ豊"}], "heat": 4630}
+{"tags": ["摇滚", "驾车", "80后"], "name": "周桐同-地球人都知道我爱你（DJ阿福 remix）", "id": 1859874507, "picUrl": "http://p3.music.126.net/VXMgEUUUCgzUL4Ni5zWA9Q==/109951166162060174.jpg", "ar": [{"name": "DJ阿福"}], "heat": 1005}
+{"tags": ["校园"], "name": "変わり行く世界のために", "id": 698168, "picUrl": "http://p3.music.126.net/QUxvmQFK2zjnGrGwfuKvwA==/796046418509877.jpg", "ar": [{"name": "茶太"}], "heat": 1712}
+{"tags": ["粤语", "流行", "地铁"], "name": "心息", "id": 227408, "picUrl": "http://p4.music.126.net/O7tut9urRhBxXsjARr8BkQ==/23089744195404.jpg", "ar": [{"name": "邓芷茵"}], "heat": 7537}
+{"tags": ["影视原声", "古风"], "name": "画心", "id": 327089, "picUrl": "http://p3.music.126.net/9YeRLbaJmAc3FiHRxJXxzw==/109951165641456869.jpg", "ar": [{"name": "张靓颖"}], "heat": 2460}
+{"tags": ["轻音乐", "学习", "安静"], "name": "Leave It Behind", "id": 473940850, "picUrl": "http://p3.music.126.net/CKb0UxuTfLZ3RhnAU712ew==/19047939439684285.jpg", "ar": [{"name": "Eleven33"}], "heat": 2006}

@@ -21,4 +21,7 @@ def Conn_Mongo_MusicByArtists():
     return my_db.MusicArtists
 
 def Conn_Mongo_CollectMusic():
-        return my_db.CollectMusic
+    return my_db.CollectMusic
+
+def Conn_Mongo_User():
+    return my_db.user

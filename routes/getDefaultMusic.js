@@ -14,7 +14,7 @@ router.use(cors())
 router.post("/", (req, res, next) => {
     // 判断POST请求是否包含请求体
     try {
-        runPython("../pyprog/mongoRandomMusic.py", () => {
+        runPython("./pyprog/mongoRandomMusic.py", () => {
             const data = fs.readFileSync('./random_music.txt', { encoding: 'utf-8' })
             const music_result_arr = data.split('\n')
             let music_result_json = []

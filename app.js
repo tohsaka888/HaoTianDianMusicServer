@@ -11,6 +11,10 @@ var musicNameRouter = require("./routes/getMusicByName");
 var collectMusicRouter = require("./routes/collectMusic");
 var getDefaultPlayListRouter = require("./routes/getDefaultPlayList");
 var getDefaultMusicRouter = require("./routes/getDefaultMusic");
+var getSimilarity = require("./routes/getSimilarityMusic");
+var getRecomendM = require("./routes/getRecomendMusic");
+var getRecomendP = require("./routes/getRecomendPalylist");
+var getMusicHeatList = require("./routes/getMusicHeatList");
 
 const { appendFile } = require("fs");
 const { getDefaultSettings } = require("http2");
@@ -33,7 +37,10 @@ app.use("/getMusicByName", musicNameRouter);
 app.use("/collectMusic", collectMusicRouter);
 app.use("/getDefaultPlayList", getDefaultPlayListRouter);
 app.use("/getDefaultMusic", getDefaultMusicRouter);
-
+app.use("/getSimilarity", getSimilarity);
+app.use("/getRecomendM", getRecomendM);
+// app.use("/getRecomendP", getRecomendP);
+// app.use("/getHeatMusic", getMusicHeatList);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

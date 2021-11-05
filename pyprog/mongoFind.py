@@ -104,17 +104,17 @@ class MongoFind(object):
 
     @staticmethod
     def db_get(self, target_data):
-        answer_list = fileTouch.open_fileL(fileTouch.path + "data_all_music.txt")['list']
+        answer_list = fileTouch.open_fileL(fileTouch.path + "music_name_all_data.txt")['list']
         index = int(target_data['page'])
         # 将分割的数据存放
         try:
             fileTouch.save_file(
-                fileTouch.path + "data_music.txt",             
+                fileTouch.path + "music_name_data.txt",             
                 answer_list[
                     limits*(index-1):limits*index])
         except:
             fileTouch.save_file(
-                fileTouch.path + "data_music.txt",             
+                fileTouch.path + "music_name_data.txt",             
                 answer_list[
                     limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
@@ -122,17 +122,17 @@ class MongoFind(object):
     def db_find(self, target_data):
         answer_list = self.find_music_name(self.connection,target_data['musicName'],target_data['src_musicName'])['list']
         # 存放所有的数据
-        fileTouch.save_file(fileTouch.path + "data_all_music.txt", answer_list)
+        fileTouch.save_file(fileTouch.path + "music_name_all_data.txt", answer_list)
         index = int(target_data['page'])
         # 将分割的数据存放
         try:
             fileTouch.save_file(
-                fileTouch.path + "data_music.txt",             
+                fileTouch.path + "music_name_data.txt",             
                 answer_list[
                     limits*(index-1):limits*index])
         except:
             fileTouch.save_file(
-                fileTouch.path + "data_music.txt",             
+                fileTouch.path + "music_name_data.txt",             
                 answer_list[
                     limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
@@ -163,7 +163,6 @@ class MongoFind(object):
         return answer_dict
 
     def run(self):
-        print('tag')
         target_data = fileTouch.open_file(fileTouch.path + 'music_name.json')
         if target_data['musicName'] != "":
             target_data['src_musicName'] = split_target_str(target_data['musicName'])
