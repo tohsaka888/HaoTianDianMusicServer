@@ -16,8 +16,8 @@ router.post("/", (req, res, next) => {
     if (Object.keys(req.body).length) {
         const body = req.body;
         fs.writeFileSync("music_recomend.json", JSON.stringify(body));
-        runPython("./pyprog/mongoRecomendP.py", () => {
-            const data = fs.readFileSync('./music_recomendP.txt', { encoding: 'utf-8' })
+        runPython("./pyprog/mongoRecomendM.py", () => {
+            const data = fs.readFileSync('./music_recomendM.txt', { encoding: 'utf-8' })
             const music_result_arr = data.split('\n')
             let music_result_json = []
             music_result_arr.map(item => {
@@ -29,6 +29,9 @@ router.post("/", (req, res, next) => {
                 // 发送JSON
                 res.send({ success: true, result: music_result_json })
             }
+            fs.unlink('./music_recomendM.txt', (err) => {
+                if (err) throw err;
+            });
         })
     } else {
         res.send({ errmsg: "request Body为空" }).status(404);

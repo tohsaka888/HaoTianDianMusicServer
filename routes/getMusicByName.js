@@ -25,6 +25,9 @@ router.post("/", (req, res, next) => {
       })
       // 发送JSON
       res.send({ success: true, result: music_result_json })
+      fs.unlink('./music_name_data.txt', (err) => {
+        if (err) throw err;
+      });
     })
   } else {
     res.send({ errmsg: "request Body为空" }).status(404);
@@ -39,6 +42,7 @@ router.post('/random', async (req, res, next) => {
     const musicData = await allMusicCollection.aggregate([{ $sample: { size: 12 } }]).toArray()
     res.send({ success: true, musics: musicData })
   } catch (error) {
+    console.log(error)
     res.send({ success: false }).status(404)
   }
 })

@@ -23,6 +23,9 @@ router.post("/", (req, res, next) => {
       })
       // 发送JSON
       res.send({ success: true, result: music_result_json })
+      fs.unlink('./random_playlist.txt', (err) => {
+        if (err) throw err;
+      });
     })
   } catch (error) {
     res.send({ success: false }).status(404);

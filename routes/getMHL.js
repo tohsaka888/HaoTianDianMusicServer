@@ -14,16 +14,16 @@ router.use(cors())
 router.post("/", (req, res, next) => {
     // 判断POST请求是否包含请求体
     try {
-        runPython("./pyprog/mongoRandomMusic.py", () => {
-            const data = fs.readFileSync('./random_music.txt', { encoding: 'utf-8' })
+        runPython("./pyprog/mongoHeatMuscList.py", () => {
+            const data = fs.readFileSync('./music_heat_list.txt', { encoding: 'utf-8' })
             const music_result_arr = data.split('\n')
             let music_result_json = []
             music_result_arr.map(item => {
                 music_result_json.push(JSON.parse(item))
             })
             // 发送JSON
-            res.send({ success: true, result: music_result_json[0] })
-            fs.unlink('./random_music.txt', (err) => {
+            res.send({ success: true, result: music_result_json })
+            fs.unlink('./music_heat_list.txt', (err) => {
                 if (err) throw err;
             });
         })
@@ -33,15 +33,15 @@ router.post("/", (req, res, next) => {
     }
 });
 
-// router.post('/defaultMusic', async (req, res, next) => {
-//     try {
-//         const musicDB = await connectMusicDB();
-//         const allMusicCollection = await musicDB.collection("MusicByTags")
-//         const musicData = await allMusicCollection.aggregate([{ $sample: { size: 1 } }]).toArray()
-//         res.send({ success: true, musics: musicData })
-//     } catch (error) {
-//         res.send({ success: false }).status(404)
-//     }
+// router.post('/randomPlayList', async (req, res, next) => {
+//   try {
+//     const musicDB = await connectMusicDB();
+//     const allMusicCollection = await musicDB.collection("MusicPlayList")
+//     const musicData = await allMusicCollection.aggregate([{ $sample: { size: 20 } }]).toArray()
+//     res.send({ success: true, musics: musicData })
+//   } catch (error) {
+//     res.send({ success: false }).status(404)
+//   }
 // })
 
 module.exports = router;

@@ -30,6 +30,9 @@ router.post("/", (req, res, next) => {
             } else {
                 res.send({ success: true, result: music_result_json })
             }
+            fs.unlink('./music_similarity.txt', (err) => {
+                if (err) throw err;
+            });
         })
     } else {
         res.send({ errmsg: "request Body为空" }).status(404);

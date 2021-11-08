@@ -11,10 +11,10 @@ var musicNameRouter = require("./routes/getMusicByName");
 var collectMusicRouter = require("./routes/collectMusic");
 var getDefaultPlayListRouter = require("./routes/getDefaultPlayList");
 var getDefaultMusicRouter = require("./routes/getDefaultMusic");
-var getSimilarity = require("./routes/getSimilarityMusic");
-var getRecomendM = require("./routes/getRecomendMusic");
-var getRecomendP = require("./routes/getRecomendPalylist");
-var getMusicHeatList = require("./routes/getMusicHeatList");
+var getSimilarity = require("./routes/getSimilarity");
+var getRecomendM = require("./routes/getRecomendM");
+var getRecomendP = require("./routes/getRecomendP");
+var getMusicHeatList = require("./routes/getMHL");
 
 const { appendFile } = require("fs");
 const { getDefaultSettings } = require("http2");
@@ -39,8 +39,8 @@ app.use("/getDefaultPlayList", getDefaultPlayListRouter);
 app.use("/getDefaultMusic", getDefaultMusicRouter);
 app.use("/getSimilarity", getSimilarity);
 app.use("/getRecomendM", getRecomendM);
-// app.use("/getRecomendP", getRecomendP);
-// app.use("/getHeatMusic", getMusicHeatList);
+app.use("/getRecomendP", getRecomendP);
+app.use("/getHML", getMusicHeatList);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -57,8 +57,14 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+// 生产环境 http://81.68.113.218:5555/
+// 测试环境 http://81.68.113.218:5556/
+// 测试完成后请将端口改为正式环境并重新使用pm2挂载后台服务
+// 停止后台服务 pm2 stop app.js
+// 挂载后台服务 pm2 start app.js
+// 重启后台服务 pm2 restart app.js
 app.listen("5555", () => {
-  console.log("sever is on http://localhost:5555/");
+  console.log("sever is on http://81.68.113.218:5555/");
 });
 
 module.exports = app;
