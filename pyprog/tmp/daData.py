@@ -1,5 +1,6 @@
 from os import PRIO_PGRP
 import fileTouch
+import random
 import time
 import pandas as pd
 import connMongo
@@ -22,34 +23,12 @@ class DaData(object):
                 "name": item['name'],
                 "id": item['id'],
                 "picUrl": item['picUrl'],
-                "ar": item['ar']
+                "ar": item['ar'],
+                "heat": random.randint(1000, 4000)
             }
             self.connection_music.insert(result)
-        # for curTagDict in json_data:
-        #     for curPlayList in curTagDict['playListAll']:
-        #         result_json = {
-        #             "tags": curPlayList['tags'],
-        #             "name": "none",
-        #             "id": "none",
-        #             "picUrl": "none",
-        #             "ar": []
-        #         }
-        #         for element in curPlayList['tracks']:
-        #             result_json = {
-        #                 "tags": curPlayList['tags'],
-        #                 "name": element['name'],
-        #                 "id": element['id'],
-        #                 "picUrl": element['picUrl'],
-        #                 "ar": element['ar']
-        #             }
-        #             dict_temp = result_json
-        #             dict_tags['music'].append(dict_temp)
-        # return dict_tags
 
     def createAr(self, json_data):
-        dict_arN = {
-            "ar": []
-        }
         dict_ar = []
         ar_list = []
         # for curTagDict in json_data:

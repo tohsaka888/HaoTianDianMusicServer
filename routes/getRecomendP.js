@@ -34,7 +34,7 @@ router.post("/", (req, res, next) => {
             });
         })
     } else {
-        res.send({ errmsg: "request Body为空" }).status(404);
+        res.send({ errmsg: "request Body为空,检查是否包含请求体或者是否设置请求头" }).status(404);
         next();
     }
 });

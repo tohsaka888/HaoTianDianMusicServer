@@ -121,17 +121,22 @@ class MongoFind(object):
         answer_list = fileTouch.open_fileL(
             fileTouch.path + "music_name_all_data.txt")['list']
         index = int(target_data['page'])
+        if index > math.ceil(len(answer_list)/limits):
+            fileTouch.save_file(
+                fileTouch.path + "music_name_data.txt",
+                [])
         # 将分割的数据存放
-        try:
-            fileTouch.save_file(
-                fileTouch.path + "music_name_data.txt",
-                answer_list[
-                    limits*(index-1):limits*index])
-        except:
-            fileTouch.save_file(
-                fileTouch.path + "music_name_data.txt",
-                answer_list[
-                    limits*math.floor(len(answer_list)/limits):len(answer_list)])
+        else:
+            try:
+                fileTouch.save_file(
+                    fileTouch.path + "music_name_data.txt",
+                    answer_list[
+                        limits*(index-1):limits*index])
+            except:
+                fileTouch.save_file(
+                    fileTouch.path + "music_name_data.txt",
+                    answer_list[
+                        limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
     # 该方法处理问题： 我们需要避免给如果出翔某个数据得返回结果是0时的问题
     def db_rand_get(self):
@@ -157,17 +162,22 @@ class MongoFind(object):
         fileTouch.save_file(
             fileTouch.path + "music_name_all_data.txt", answer_list)
         index = int(target_data['page'])
-        # 将分割的数据存放
-        try:
+        if index > math.ceil(len(answer_list)/limits):
             fileTouch.save_file(
                 fileTouch.path + "music_name_data.txt",
-                answer_list[
-                    limits*(index-1):limits*index])
-        except:  # 出翔达到最后一组时，出现不满20个shi
-            fileTouch.save_file(
-                fileTouch.path + "music_name_data.txt",
-                answer_list[
-                    limits*math.floor(len(answer_list)/limits):len(answer_list)])
+                [])
+        else:
+            # 将分割的数据存放
+            try:
+                fileTouch.save_file(
+                    fileTouch.path + "music_name_data.txt",
+                    answer_list[
+                        limits*(index-1):limits*index])
+            except:  # 出翔达到最后一组时，出现不满20个shi
+                fileTouch.save_file(
+                    fileTouch.path + "music_name_data.txt",
+                    answer_list[
+                        limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
     @staticmethod
     def find_music_name(connection, str, target_str):
