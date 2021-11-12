@@ -6,8 +6,9 @@ import pandas as pd
 
 from gensim import corpora,models,similarities
 
-import fileTouch
-import connMongo
+import tool_fileTouch as fileTouch
+
+import tool_connMongo as connMongo
 
 # 如何修改相似算法，需要data_list 处理的对象之后会和srclist进行比对
 # tmp_list必须和前面data_list顺序一致，用于之后结果生成时，使用data_list的顺序依次将tmp_list的内容排序

@@ -30,7 +30,10 @@ router.post("/next", async (req, res, next) => {
             }
           })
           if (currentIndex === -1) {
-            res.send({ success: false, errmsg: '当前歌单内无此歌曲' })
+            const musicDB = await connectMusicDB();
+            const allMusicCollection = await musicDB.collection("MusicByTags")
+            const musicData = await allMusicCollection.aggregate([{ $sample: { size: 1 } }]).toArray()
+            res.send({ music: musicData[0], success: true })
           }
           // 如果为最后一首,循环此歌单
           if (currentIndex === musics.length - 1) {
@@ -47,7 +50,7 @@ router.post("/next", async (req, res, next) => {
         const musicDB = await connectMusicDB();
         const allMusicCollection = await musicDB.collection("MusicByTags")
         const musicData = await allMusicCollection.aggregate([{ $sample: { size: 1 } }]).toArray()
-        res.send({ music: musicData, success: true })
+        res.send({ music: musicData[0], success: true })
       }
     } else {
       res.send({ errmsg: "request Body为空" }).status(404);
@@ -79,7 +82,10 @@ router.post("/previous", async (req, res, next) => {
             }
           })
           if (currentIndex === -1) {
-            res.send({ success: false, errmsg: '当前歌单内无此歌曲' })
+            const musicDB = await connectMusicDB();
+            const allMusicCollection = await musicDB.collection("MusicByTags")
+            const musicData = await allMusicCollection.aggregate([{ $sample: { size: 1 } }]).toArray()
+            res.send({ music: musicData[0], success: true })
           }
           // 如果为最后一首,循环此歌单
           if (currentIndex === 0) {
@@ -96,7 +102,7 @@ router.post("/previous", async (req, res, next) => {
         const musicDB = await connectMusicDB();
         const allMusicCollection = await musicDB.collection("MusicByTags")
         const musicData = await allMusicCollection.aggregate([{ $sample: { size: 1 } }]).toArray()
-        res.send({ music: musicData, success: true })
+        res.send({ music: musicData[0], success: true })
       }
     } else {
       res.send({ errmsg: "request Body为空" }).status(404);

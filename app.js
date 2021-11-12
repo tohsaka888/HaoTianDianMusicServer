@@ -14,8 +14,10 @@ var getDefaultMusicRouter = require("./routes/getDefaultMusic");
 var getSimilarity = require("./routes/getSimilarity");
 var getRecomendM = require("./routes/getRecomendM");
 var getRecomendP = require("./routes/getRecomendP");
-var getMusicHeatList = require("./routes/getMHL");
+var getMusicHeatList = require("./routes/getHML");
+var getArHeatList = require("./routes/getHAL")
 var getNextMusic = require("./routes/getNextMusic");
+var getUL = require("./routes/getUL");
 
 const { appendFile } = require("fs");
 const { getDefaultSettings } = require("http2");
@@ -43,6 +45,8 @@ app.use("/getRecomendM", getRecomendM);
 app.use("/getRecomendP", getRecomendP);
 app.use("/getHML", getMusicHeatList);
 app.use("/getNextMusic", getNextMusic);
+app.use("/getUL", getUL)
+app.use("/getHAL", getArHeatList)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -66,7 +70,7 @@ app.use(function (err, req, res, next) {
 // 挂载后台服务 pm2 start app.js
 // 重启后台服务 pm2 restart app.js
 app.listen("5555", () => {
-  console.log("sever is on http://81.68.113.218:5555/");
+  console.log("sever is on http://81.68.113.218:5556/");
 });
 
 module.exports = app;

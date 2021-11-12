@@ -1,10 +1,11 @@
 import time
-import fileTouch
-import connMongo
+import tool_fileTouch as fileTouch
+
+import tool_connMongo as connMongo
 
 import pandas as pd
 
-from recomend import Recomend
+from tool_recomend import Recomend
 
 limits = 20  # ..
 

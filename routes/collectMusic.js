@@ -2,16 +2,19 @@ const express = require("express");
 const router = express.Router();
 const connectMusicDB = require("../components/mongoConnection");
 const cors = require('cors')
-var fs = require("fs")
+var fs = require("fs");
+const { time } = require("console");
 router.use(express.json())
 router.use(express.urlencoded({ extended: false }))
 router.use(cors())
 
 router.post("/", async (req, res, next) => {
+
   try {
     if (req.body) {
       let collectData = req.body;
       if (collectData.musicId && collectData.userId) {
+        const tT = Date.now()
         const musicDB = await connectMusicDB();
         const collectMusicCollection = await musicDB.collection("CollectMusic");
         // const targetUser = await collectMusicCollection.find({ "userId": collectData.musicId })
@@ -20,6 +23,7 @@ router.post("/", async (req, res, next) => {
           userId: collectData.userId,
           musicId: collectData.musicId,
           tags: collectData.tags,
+          timestamp: tT
         });
         if (insertResult.insertedId) {
           res.send({ success: true, message: "收藏成功！" }).status(200);

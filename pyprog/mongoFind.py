@@ -10,9 +10,8 @@ import math
 
 from gensim import corpora, models, similarities
 
-import fileTouch
-import connMongo
-import mongoRandomMusic
+import tool_fileTouch as fileTouch
+import tool_connMongo as connMongo
 
 answer_dict = {
     "list": []

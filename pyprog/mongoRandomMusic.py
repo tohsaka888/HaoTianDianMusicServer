@@ -1,7 +1,8 @@
 import time
 import os 
-import connMongo 
-import fileTouch
+import tool_connMongo as connMongo
+import tool_fileTouch as fileTouch
+
 
 
 class MongoRandom(object):

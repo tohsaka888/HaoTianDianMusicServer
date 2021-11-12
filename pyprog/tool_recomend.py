@@ -1,4 +1,4 @@
-import connMongo
+import tool_connMongo as connMongo
 import pandas as pd
 
 
