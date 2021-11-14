@@ -19,12 +19,23 @@ router.post("/", async (req, res, next) => {
         const collectMusicCollection = await musicDB.collection("CollectMusic");
         // const targetUser = await collectMusicCollection.find({ "userId": collectData.musicId })
         // fs.writeFileSync("tmp_data_userId.json", JSON.stringify(targetUser))
-        const insertResult = await collectMusicCollection.updateOne({
-          userId: collectData.userId,
-          musicId: collectData.musicId,
-          tags: collectData.tags,
-          timestamp: tT
-        });
+        const isCollectMusic = await collectMusicCollection.find({ userId: collectData.userId, musicId: collectData.musicId }).toArray()
+        let insertResult = null
+        if (isCollectMusic.length) {
+          insertResult = await collectMusicCollection.updateOne({
+            userId: collectData.userId,
+            musicId: collectData.musicId,
+            tags: collectData.tags,
+            timestamp: tT
+          });
+        } else {
+          insertResult = await collectMusicCollection.insertOne({
+            userId: collectData.userId,
+            musicId: collectData.musicId,
+            tags: collectData.tags,
+            timestamp: tT
+          });
+        }
         if (insertResult.insertedId) {
           res.send({ success: true, message: "收藏成功！" }).status(200);
         } else {
