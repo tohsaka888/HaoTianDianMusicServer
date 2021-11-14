@@ -14,7 +14,7 @@ from ua_info import ua_list
 
 class CSong(object):
     def __init__(self):
-        self.url = "http://81.68.113.218:3000/song/url?id={}"
+        self.url = "http://cloud-music.pl-fe.cn/check/music?id={}"
         self.connection_playlist = connMongo.Conn_Mongo_MusicPlayList()
 
     def get_json(self, url):
@@ -26,24 +26,25 @@ class CSong(object):
     def run(self):
         data_spring = self.connection_playlist.find({})
         print(data_spring.count())
+        sym = 0
         for item in data_spring:
-            try:
-                new_tracks = []
-                for elem in item['tracks']:
-                    if elem == {}:
-                        continue
-                    url = self.url.format(elem['id'])
-                    Json = self.get_json(url)
-                    if Json['data'][0]['url'] != None and "ar" in elem:
-                        new_tracks.append(elem)
-                    else:
-                        continue
-                self.connection_playlist.update_one({"id": int(item['id'])}, {
-                    "$set": {"tracks": new_tracks}})
-            except:
-                pass
-            # for elem in item['tracks']:
-            #     print(elem)
+            new_tracks = []
+            for elem in item['tracks']:
+                if elem == {}:
+                    continue
+                url = self.url.format(elem['id'])
+                Json = self.get_json(url)
+                if Json['success'] != False:
+                    new_tracks.append(elem)
+                else:
+                    continue
+            print(sym, '\n', new_tracks)
+            time.sleep(3)
+            sym += 1
+            self.connection_playlist.update_one({"id": int(item['id'])}, {
+                "$set": {"tracks": new_tracks}})
+        # for elem in item['tracks']:
+        #     print(elem)
 
 
 if __name__ == '__main__':

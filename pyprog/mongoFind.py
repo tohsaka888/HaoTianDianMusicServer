@@ -123,7 +123,7 @@ class MongoFind(object):
         if index > math.ceil(len(answer_list)/limits):
             fileTouch.save_file(
                 fileTouch.path + "music_name_data.txt",
-                [])
+                [{}])
         # 将分割的数据存放
         else:
             try:
@@ -164,7 +164,7 @@ class MongoFind(object):
         if index > math.ceil(len(answer_list)/limits):
             fileTouch.save_file(
                 fileTouch.path + "music_name_data.txt",
-                [])
+                [{}])
         else:
             # 将分割的数据存放
             try:
