@@ -7,7 +7,6 @@ var router = express.Router();
 router.post("/", async (req, res, next) => {
   let music_all_json = [];
   if (req.body) {
-    console.log(req.body);
     const body = req.body;
     if (body.musicName) {
       const data = spawn("python3", ["connMongo_bak.py"]);

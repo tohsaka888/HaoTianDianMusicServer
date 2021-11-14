@@ -21,13 +21,17 @@ router.post("/", async (req, res, next) => {
         // fs.writeFileSync("tmp_data_userId.json", JSON.stringify(targetUser))
         const isCollectMusic = await collectMusicCollection.find({ userId: collectData.userId, musicId: collectData.musicId }).toArray()
         let insertResult = null
+        let deleteResult = null
         if (isCollectMusic.length) {
-          insertResult = await collectMusicCollection.updateOne({
+          deleteResult = await collectMusicCollection.deleteOne({
             userId: collectData.userId,
             musicId: collectData.musicId,
-            tags: collectData.tags,
-            timestamp: tT
           });
+          if (deleteResult.deletedCount) {
+            res.send({ success: true, isCollect: false, message: '取消收藏成功' })
+          } else {
+            res.send({ success: false, isCollect: true, message: '取消收藏失败' })
+          }
         } else {
           insertResult = await collectMusicCollection.insertOne({
             userId: collectData.userId,
@@ -35,11 +39,11 @@ router.post("/", async (req, res, next) => {
             tags: collectData.tags,
             timestamp: tT
           });
-        }
-        if (insertResult.insertedId) {
-          res.send({ success: true, message: "收藏成功！" }).status(200);
-        } else {
-          res.send({ success: false, message: "收藏失败！" }).status(300);
+          if (insertResult.insertedId) {
+            res.send({ success: true, isCollect: true, message: '收藏成功' })
+          } else {
+            res.send({ success: false, isCollect: false, message: '收藏失败' })
+          }
         }
       }
     }
