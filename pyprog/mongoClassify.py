@@ -19,22 +19,28 @@ class Classify(object):
     def db_get(self, target_data):
         answer_list = self.get_play_list(target_data)
         index = int(target_data['page'])
-        if index > math.ceil(len(answer_list)/limits):
+        print(index)
+        # page为-1时取出10页
+        if index == -1:
             fileTouch.save_file(
-                fileTouch.path + "music_palylist_data.txt",
-                [{}])
-        # 将分割的数据存放
-        else:
-            try:
-                fileTouch.save_file(
-                    fileTouch.path + "music_playlist_data.txt",
-                    answer_list[
-                        limits*(index-1):limits*index])
-            except:
-                fileTouch.save_file(
-                    fileTouch.path + "music_playlist_data.txt",
-                    answer_list[
-                        limits*math.floor(len(answer_list)/limits):len(answer_list)])
+                fileTouch.path + "music_playlist_data.txt",
+                answer_list[0: limits * 10])
+        # if index > math.ceil(len(answer_list)/limits):
+        #     fileTouch.save_file(
+        #         fileTouch.path + "music_palylist_data.txt",
+        #         [{}])
+        # # 将分割的数据存放
+        # else:
+        #     try:
+        #         fileTouch.save_file(
+        #             fileTouch.path + "music_playlist_data.txt",
+        #             answer_list[
+        #                 limits*(index-1):limits*index])
+        #     except:
+        #         fileTouch.save_file(
+        #             fileTouch.path + "music_playlist_data.txt",
+        #             answer_list[
+        #                 limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
     # 该方法处理问题： 我们需要避免给如果出翔某个数据得返回结果是0时的问题
     def db_rand_get(self):
@@ -43,8 +49,8 @@ class Classify(object):
         }
         # 循环将数据转存为字典，并存放到list中
         answer_frame = pd.DataFrame(
-            self.connection.aggregate([{'$sample': {'size': 1000}}]))
-        print(answer_frame)
+            self.connection.aggregate([{'$sample': {'size': 200}}]))
+        # print(answer_frame)
         answer_list = answer_frame.to_dict('records')
         answer_dict['list'] = answer_list
         return answer_dict
@@ -59,22 +65,28 @@ class Classify(object):
         fileTouch.save_file(
             fileTouch.path + "music_playlist_all_data.txt", answer_list)
         index = int(target_data['page'])
-        if index > math.ceil(len(answer_list)/limits):
+        print(index)
+        # page为-1时取出10页
+        if index == -1:
             fileTouch.save_file(
                 fileTouch.path + "music_playlist_data.txt",
-                [{}])
-        else:
-            # 将分割的数据存放
-            try:
-                fileTouch.save_file(
-                    fileTouch.path + "music_playlist_data.txt",
-                    answer_list[
-                        limits*(index-1):limits*index])
-            except:  # 出翔达到最后一组时，出现不满20个shi
-                fileTouch.save_file(
-                    fileTouch.path + "music_playlist_data.txt",
-                    answer_list[
-                        limits*math.floor(len(answer_list)/limits):len(answer_list)])
+                answer_list[0: limits * 10])
+        # if index > math.ceil(len(answer_list)/limits):
+        #     fileTouch.save_file(
+        #         fileTouch.path + "music_playlist_data.txt",
+        #         [{}])
+        # else:
+        #     # 将分割的数据存放
+        #     try:
+        #         fileTouch.save_file(
+        #             fileTouch.path + "music_playlist_data.txt",
+        #             answer_list[
+        #                 limits*(index-1):limits*index])
+        #     except:  # 出翔达到最后一组时，出现不满20个shi
+        #         fileTouch.save_file(
+        #             fileTouch.path + "music_playlist_data.txt",
+        #             answer_list[
+        #                 limits*math.floor(len(answer_list)/limits):len(answer_list)])
 
     def get_play_list(self, cat_data):
         data_spring = self.connection.find(
