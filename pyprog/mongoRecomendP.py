@@ -60,7 +60,7 @@ class MongoRecomend(object):
         # 获得标签list
         answer_list = self.music_new_user(9).to_dict('records')
         user_frame = recomend.search_user_music(target_userId)
-        # 此处信息不方便。
+        # 此处信息不方便// 当出现意外的时候将会有一份信息输出
         try:
             user_tags_list = recomend.twodim_to_onedim(
                 user_frame['tags'].values.tolist())
