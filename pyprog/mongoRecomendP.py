@@ -57,26 +57,25 @@ class MongoRecomend(object):
             fileTouch.save_file(
                 fileTouch.path + "music_recomendP.txt", answer_list)
             return
-        # 获得标签list
-        answer_list = self.music_new_user(9).to_dict('records')
+        # 获得标签list,[存在的用户应该拥有的]
         user_frame = recomend.search_user_music(target_userId)
         # 此处信息不方便// 当出现意外的时候将会有一份信息输出
         try:
             user_tags_list = recomend.twodim_to_onedim(
                 user_frame['tags'].values.tolist())
+            # 计算每个出现的tag的概率，同时保留高于平均频率以上的值
+            # 仅取出最高的三个标签
+            user_tags_rate_frame = recomend.catch_tags_rate(
+                pd.DataFrame(user_tags_list))
+            # print(user_tags_rate_frame)
+            # 根据频率和源数据，生成结果表，并生成list写到文件中
+            answer_list = self.recommend_musicPL(
+                user_frame, user_tags_rate_frame, 9).to_dict('records')
+            # 写道文件中
         except:
             answer_list = self.music_new_user(9).to_dict('records')
-        # 计算每个出现的tag的概率，同时保留高于平均频率以上的值
-        # 仅取出最高的三个标签
-        user_tags_rate_frame = recomend.catch_tags_rate(
-            pd.DataFrame(user_tags_list))
-        # print(user_tags_rate_frame)
-        # 根据频率和源数据，生成结果表，并生成list写到文件中
-        answer_list = self.recommend_musicPL(
-            user_frame, user_tags_rate_frame, 9).to_dict('records')
-        # 写道文件中
-        fileTouch.save_file(
-            fileTouch.path + "music_recomendP.txt", answer_list)
+            fileTouch.save_file(
+                fileTouch.path + "music_recomendP.txt", answer_list)
 
 
 if __name__ == '__main__':

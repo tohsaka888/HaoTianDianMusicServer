@@ -1,8 +1,9 @@
 import time
-import os 
+import os
+import pandas as pd
+from pymongo import database
 import tool_connMongo as connMongo
 import tool_fileTouch as fileTouch
-
 
 
 class MongoRandomPlayList(object):
@@ -11,21 +12,18 @@ class MongoRandomPlayList(object):
         self.connection = connMongo.Conn_Mongo_MusicPlayList()
 
     def random_music(self):
-        answer_dict = {
-            "list": []
-        }
-        # 循环将数据转存为字典，并存放到list中
-        for item in self.connection.aggregate([{'$sample': {'size': 20}}]):
-            result_dict = dict(item)
-            answer_dict['list'].append(result_dict)
-        return answer_dict
- 
+        dest_frame = pd.DataFrame(
+            self.connection.aggregate([{'$sample': {'size': 15}}]))
+        answer_list = dest_frame.drop('_id', axis=1).to_dict('records')
+        return answer_list
+
     def run(self):
         print("random_playlist")
-        fileTouch.save_file(fileTouch.path + 'random_playlist.txt', self.random_music()['list'])    
+        fileTouch.save_file(
+            fileTouch.path + 'random_playlist.txt', self.random_music())
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     start_time = time.time()
     find = MongoRandomPlayList()
     find.run()
