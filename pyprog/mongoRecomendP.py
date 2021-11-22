@@ -66,8 +66,6 @@ class MongoRecomend(object):
                 user_frame['tags'].values.tolist())
         except:
             answer_list = self.music_new_user(9).to_dict('records')
-            # fileTouch.save_file(
-                # fileTouch.path + "music_recomendP.txt", answer_list)
         # 计算每个出现的tag的概率，同时保留高于平均频率以上的值
         # 仅取出最高的三个标签
         user_tags_rate_frame = recomend.catch_tags_rate(
