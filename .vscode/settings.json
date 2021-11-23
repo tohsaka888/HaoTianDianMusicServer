@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./pyprog/utils/mongo",
+        "./pyprog/utils/tools",
+        "./pyprog/utils"
+    ]
+}

@@ -1,0 +1,10 @@
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "Listen 4 my love", "id": 1865991306, "picUrl": "http://p4.music.126.net/p8uJtdKZHMw6YNpS7U9IOA==/109951166240776357.jpg", "ar": [{"name": "林如韵"}, {"name": "氡"}], "heat": 2209}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "梦 港 夏 日 舞 会", "id": 1853248312, "picUrl": "http://p3.music.126.net/6TF2JQpccopikh1QRclNVQ==/109951166086859478.jpg", "ar": [{"name": "G H C"}, {"name": "Aviation蒸汽所"}], "heat": 3401}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "T O U C H M E", "id": 1825043817, "picUrl": "http://p4.music.126.net/JQ8BUt2YOFafV4MRN-N4QQ==/109951165780045494.jpg", "ar": [{"name": "ROBOT #2"}, {"name": "Matcha girl 凌风酱"}], "heat": 3603}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "梦 港 初 恋 电 台", "id": 1862798463, "picUrl": "http://p4.music.126.net/JJJO9NesSdj4zsKmUIypLA==/109951166197895386.jpg", "ar": [{"name": "G H C"}], "heat": 4080}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "夏 日 舞 池 Say so", "id": 1450044254, "picUrl": "http://p4.music.126.net/3jvksqLTTyvCT-QZY6ts6w==/109951165007436862.jpg", "ar": [{"name": "G H C"}, {"name": "露露娜Ruruna"}], "heat": 6308}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "Rihanna-Y O U（雀 remix）", "id": 1463612886, "picUrl": "http://p3.music.126.net/YdHsjfFkXmqX-6QII7BGmw==/109951165146567680.jpg", "ar": [{"name": "雀"}], "heat": 7024}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "當山みれい-キミの好きなうた（眠 remix）", "id": 1824978757, "picUrl": "http://p4.music.126.net/W-2PCmCQzlqb2qUFEArdSg==/109951165779462123.jpg", "ar": [{"name": "眠"}], "heat": 7701}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "暧 昧 物 语（G H C vapor Mix）", "id": 1850239758, "picUrl": "http://p3.music.126.net/sFxpK27PCm0ef4JoUjJYpw==/109951166055834812.jpg", "ar": [{"name": "G H C"}, {"name": "露露娜Ruruna"}], "heat": 9798}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "autumn leaves.", "id": 458507205, "picUrl": "http://p4.music.126.net/c6wQdpJxjwpMEsHw2Amm6w==/18753270325123210.jpg", "ar": [{"name": "prima"}], "heat": 5973}
+{"tags": ["电子", "另类/独立", "怀旧"], "name": "I feel nothing", "id": 1350095189, "picUrl": "http://p4.music.126.net/nt8WZKO6j_Bzaqjk_RGX-w==/109951163905178468.jpg", "ar": [{"name": "prxz"}], "heat": 9455}
