@@ -19,6 +19,7 @@ router.post("/", (req, res, next) => {
         runPython("./pyprog/mongoRecomendP.py", () => {
             const data = fs.readFileSync('./music_recomendP.txt', { encoding: 'utf-8' })
             const music_result_arr = data.split('\n')
+            // console.log("data")
             let music_result_json = []
             music_result_arr.map(item => {
                 music_result_json.push(JSON.parse(item))

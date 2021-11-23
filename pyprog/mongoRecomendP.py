@@ -74,8 +74,8 @@ class MongoRecomend(object):
             # 写道文件中
         except:
             answer_list = self.music_new_user(9).to_dict('records')
-            fileTouch.save_file(
-                fileTouch.path + "music_recomendP.txt", answer_list)
+        fileTouch.save_file(
+            fileTouch.path + "music_recomendP.txt", answer_list)
 
 
 if __name__ == '__main__':

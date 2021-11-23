@@ -16,20 +16,6 @@ router.post("/", async (req, res, next) => {
     if (Object.keys(req.body).length) {
 
         const body = req.body;
-        // fs.writeFileSync("music_colle_existence.json", JSON.stringify(body));
-        // runPython("./pyprog/mongoCheckColle.py", () => {
-        //     const data = fs.readFileSync('./music_colle_existence.txt', { encoding: 'utf-8' })
-        //     const music_result_arr = data.split('\n')
-        //     let music_result_json = {}
-        //     music_result_arr.map(item => {
-        //         music_result_json = JSON.parse(item)
-        //     })
-        //     // 发送JSON
-        //     res.send({ success: true, existence: music_result_json.existence })
-        //     fs.unlink('./music_colle_existence.txt', (err) => {
-        //         if (err) throw err;
-        //     });
-        // })
         const MusicDB = await connectMusicDB();
         const collectMusicCollection = await MusicDB.collection("CollectMusic");
         let collectData = []
