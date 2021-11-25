@@ -37,11 +37,9 @@ class UserLove(object):
             result_item_dict = music_frame.drop(
                 ['_id', 'heat'], axis=1).to_dict('records')
             result_dict['tracks'].append(result_item_dict[0])
-
         return result_dict
 
     def run(self):
-        # 获取查询对象
         target_userId = fileTouch.open_file(
             fileTouch.path + "music_recomend.json")['userId']
         tmp_0_list = self.get_music_mine(int(target_userId)).to_dict('records')
