@@ -23,15 +23,15 @@ class MongoDataCCl(object):
         data_frame_tags = pd.DataFrame(
             df.tags.value_counts()).reset_index()
         data_frame_tags.columns = ['name', 'value']
-        df_answer_tags = data_frame_tags.head(9).append(
-            pd.Series({
-                'name': '其他',
-                'value': data_frame_tags.tail(len(data_frame_tags)-9)['value'].sum()
-            }), ignore_index=True)
+        df_answer_tags = data_frame_tags.head(10)
+        # .append(
+        #     pd.Series({
+        #         'name': '其他',
+        #         'value': data_frame_tags.tail(len(data_frame_tags)-9)['value'].sum()
+        #     }), ignore_index=True)
 
         # data_frame_tags = data_frame_tags.drop_duplicates('tags')
         answer_dict = df_answer_tags.to_dict('records')
-
         return answer_dict
 
     def run(self):
