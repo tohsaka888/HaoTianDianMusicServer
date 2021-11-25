@@ -13,7 +13,7 @@ from gensim import corpora, models, similarities
 import tool_fileTouch as fileTouch
 import tool_connMongo as connMongo
 
-limits = 18
+limits = 24
 
 
 class MongoPLCat(object):
@@ -25,8 +25,9 @@ class MongoPLCat(object):
             PL_frame = pd.DataFrame(self.connection.aggregate(
                 [
                     {"$match": {"tags": {"$all": tag}}},
-                    {"$skip": (page-1)*limits},
-                    {"$limit": limits}
+                    # {"$skip": (page-1)*limits},
+                    # {"$limit": limits}
+                    {"$sample": {"size": limits}}
                 ]
             ))
             if len(PL_frame) == 0:

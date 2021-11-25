@@ -2,7 +2,7 @@ import json
 import time
 import random
 from numpy import int64, result_type, string_
-from pymongo.message import _batched_write_command_impl
+from pymongo.message import _batched_write_command_impl, delete
 
 import tool_connMongo as connMongo
 import pandas as pd
@@ -38,12 +38,23 @@ class CSong(object):
                     new_tracks.append(elem)
                 else:
                     continue
-            print(sym, '\n', new_tracks)
+            print(sym, len(new_tracks))
             time.sleep(3)
             sym += 1
-            self.connection_playlist.update_one({"id": int(item['id'])}, {
-                "$set": {"tracks": new_tracks}})
-        # for elem in item['tracks']:
+            if (new_tracks == []):
+                self.connection_playlist.delete_many({"id": int(item['id'])})
+                print("Success")
+            else:
+                item_dict = {
+                    "name": item['name'],
+                    "id": item['id'],
+                    "tags": item['tags'],
+                    "coverImgUrl": item['coverImgUrl'],
+                    "tracks": new_tracks
+                }
+                self.connection_playlist.delete_many({"id": int(item['id'])})
+                self.connection_playlist.insert_one(item_dict)
+            # for elem in item['tracks']:
         #     print(elem)
 
 

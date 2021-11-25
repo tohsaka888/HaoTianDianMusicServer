@@ -27,7 +27,6 @@ router.post("/", async (req, res, next) => {
       } else {
         res.send({ success: false, data: "",message: "对象不存在"}).status(200)
       }
-      next();
 });
 
 module.exports = router;

@@ -15,10 +15,11 @@ router.post("/", (req, res, next) => {
   // 判断POST请求是否包含请求体
   if (Object.keys(req.body).length) {
     const body = req.body;
+    console.log(req.body);
     fs.writeFileSync("music_cat.json", JSON.stringify(body));
     runPython("./pyprog/mongoPLCat.py", () => {
-      const data = fs.readFileSync("./music_pl.txt", { encoding: "utf-8" });
-      if (data.length === 0) {
+      let data = fs.readFileSync("./music_pl.txt", { encoding: "utf-8" });
+      if (!data) {
         res.send({ success: false, result: data, message: "Out Of Range" });
       } else {
         const music_result_arr = data.split("\n");
@@ -28,26 +29,12 @@ router.post("/", (req, res, next) => {
         });
         res.send({ success: true, result: music_result_json });
       }
-      fs.unlink("./music_pl.txt", (err) => {
-        if (err) throw err;
-      });
+      // fs.unlink("./music_pl.txt", (err) => {
+      //   if (err) throw err;
+      // });
     });
   } else {
     res.send({ errmsg: "request Body为空,检查是否包含请求体或者是否设置请求头" }).status(404);
-    next();
-  }
-});
-
-router.post("/random", async (req, res, next) => {
-  try {
-    const musicDB = await connectMusicDB();
-    const allMusicCollection = await musicDB.collection("MusicByTags");
-    const musicData = await allMusicCollection.aggregate([{
-      $sample: { size: 12 },
-    }]).toArray();
-    res.send({ success: true, musics: musicData });
-  } catch (error) {
-    res.send({ success: false }).status(404);
   }
 });
 
