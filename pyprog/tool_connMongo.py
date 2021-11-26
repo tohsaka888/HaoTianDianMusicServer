@@ -11,17 +11,26 @@ db = client.admin
 db.authenticate("tohsaka888", "swy156132264")
 my_db = client.Music
 
+
+def Conn_Mongo_CollectMusic():
+    return my_db.CollectMusic
+
+
+def Conn_Mongo_DataAnalyse():
+    return my_db.DataAnalyse
+
+
 def Conn_Mongo_MusicByTags():
     return my_db.MusicByTags
+
 
 def Conn_Mongo_MusicPlayList():
     return my_db.MusicPlayList
 
-def Conn_Mongo_MusicByArtists():
-    return my_db.MusicArtists
 
-def Conn_Mongo_CollectMusic():
-    return my_db.CollectMusic
+def Conn_Mongo_MusicByArtists():
+    return my_db.MusicByArtists
+
 
 def Conn_Mongo_User():
     return my_db.user

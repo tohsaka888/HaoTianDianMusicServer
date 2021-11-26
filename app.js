@@ -21,7 +21,10 @@ var getUserLove = require("./routes/getUL");
 var getCollMusicExist = require("./routes/getCollMusicExist");
 var getPlayListCat = require("./routes/getPlayListCat");
 var getDetailCategroy = require("./routes/getDetailCategroy");
-var getDataCCl = require("./routes/getDataCCI");
+// var getDataCCI = require("./routes/getDataCCI");
+// var getDataCCAr = require("./routes/getDataCCAr");
+var getDataTableN = require("./routes/getDataTableN");
+var getDataAnalyse = require("./routes/getDataAnalyse");
 
 const { appendFile } = require("fs");
 const { getDefaultSettings } = require("http2");
@@ -53,7 +56,10 @@ app.use("/getUL", getUserLove);
 app.use("/getCMExist", getCollMusicExist);
 app.use("/getPLCat", getPlayListCat);
 app.use("/getHAL", getArHeatList);
-app.use("/getDCCI", getDataCCl);
+// app.use("/getDCCI", getDataCCI);
+// app.use("/getDCCAr", getDataCCAr);
+app.use("/getDataTableN", getDataTableN);
+app.use("/getDataAnalyse", getDataAnalyse);
 
 // app.use("/getDetailCategroy", getDetailCategroy);
 
